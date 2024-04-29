@@ -1,0 +1,32 @@
+@import "../index.scss";
+
+.container {
+  background-color: $white;
+  border: solid lightgrey;
+  border-width: 1px 0 1px 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  background-color: $yellow;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  animation: 3s infinite alternate scaleX;
+  animation-timing-function: cubicBezier(0.35, 0.17, 0.3, 0.86);
+  transform-origin: left center;
+}
+
+@keyframes scaleX {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}

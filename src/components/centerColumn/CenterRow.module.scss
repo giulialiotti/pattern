@@ -1,0 +1,106 @@
+@import "../../index.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+// LEFT BOX
+
+.leftBox {
+  aspect-ratio: 1/1;
+  background-color: $white;
+  position: relative;
+
+  .top {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: $green;
+      border-radius: 50%;
+      position: absolute;
+      top: 8%;
+      left: 8%;
+      height: 42%;
+      width: 42%;
+    }
+  }
+
+  .bottom {
+    background-color: $black;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: $white;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 8%;
+      right: 8%;
+      height: 42%;
+      width: 42%;
+    }
+  }
+}
+
+// CENTER BOX
+
+.centerBox {
+  aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  .triangle {
+    background-color: $coral;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  }
+}
+
+// RIGHT BOX
+
+.rightBox {
+  aspect-ratio: 1/1;
+  position: relative;
+  background-color: $blue;
+
+  .circle {
+    aspect-ratio: 1/1;
+    background-color: $white;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    & > div {
+      border-radius: 50%;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+
+    & > div:first-of-type {
+      background-color: $red;
+      transform: scale(0.75);
+    }
+
+    & > div:nth-child(2) {
+      background-color: $white;
+      transform: scale(0.5);
+    }
+
+    & > div:nth-child(3) {
+      background-color: $red;
+      transform: scale(0.25);
+    }
+  }
+}

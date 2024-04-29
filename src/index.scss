@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// COLORS
+
+$white: #ffffff;
+$black: #000000;
+$blue: #176fb9;
+$yellow: #ffbd48;
+$green: #6c9172;
+$red: #e76851;
+$coral: #ffaa90;
+
+.app {
+  min-height: 100vh;
+  background-color: #6c9172;
+  display: grid;
+  align-content: center;
+}

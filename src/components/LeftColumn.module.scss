@@ -1,0 +1,122 @@
+@import "../index.scss";
+
+// TOP BOX
+
+.topBox {
+  aspect-ratio: 1/1;
+  background-color: $coral;
+  position: relative;
+}
+
+.whiteCircle,
+.blackCircle {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.whiteCircle {
+  background-color: $white;
+  clip-path: polygon(50% 0%, 50% 50%, 100% 50%, 100% 100%, 0 100%, 0 0);
+  position: relative;
+  z-index: 1;
+  animation: 1.5s infinite alternate rotate;
+  animation-timing-function: cubicBezier(0.35, 0.17, 0.3, 0.86);
+}
+
+.blackCircle {
+  background-color: $black;
+  clip-path: polygon(100% 0, 50% 50%, 100% 100%, 100% 100%, 0 100%, 0 0);
+  position: absolute;
+  inset: 0;
+  animation: 1.5s infinite alternate rotate;
+  animation-timing-function: cubicBezier(0.35, 0.17, 0.3, 0.86);
+  animation-delay: 0.2s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+// BOTTOM BOX
+
+.bottomBox {
+  aspect-ratio: 1/2;
+  display: grid;
+  gap: 6%;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.bar {
+  background-color: $blue;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  &:first-of-type .barYellow {
+    animation: 2s infinite alternate barGrow1;
+  }
+
+  &:nth-of-type(2) .barYellow {
+    animation: 2s infinite alternate barGrow2;
+  }
+
+  &:nth-of-type(3) .barYellow {
+    animation: 2s infinite alternate barGrow3;
+  }
+
+  &:nth-of-type(4) .barYellow {
+    animation: 2s infinite alternate barGrow4;
+  }
+}
+
+.barYellow {
+  background-color: $yellow;
+  width: 100%;
+}
+
+@keyframes barGrow1 {
+  0% {
+    flex-basis: 45%;
+  }
+
+  100% {
+    flex-basis: 80%;
+  }
+}
+
+@keyframes barGrow2 {
+  0% {
+    flex-basis: 80%;
+  }
+
+  100% {
+    flex-basis: 30%;
+  }
+}
+
+@keyframes barGrow3 {
+  0% {
+    flex-basis: 60%;
+  }
+
+  100% {
+    flex-basis: 40%;
+  }
+}
+
+@keyframes barGrow4 {
+  0% {
+    flex-basis: 15%;
+  }
+
+  100% {
+    flex-basis: 65%;
+  }
+}

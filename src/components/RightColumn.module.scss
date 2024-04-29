@@ -1,0 +1,155 @@
+@import "../index.scss";
+
+// TOP BOX
+
+.topBox {
+  aspect-ratio: 1/2;
+  display: grid;
+  gap: 8%;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bar {
+  background-color: $yellow;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  &:first-of-type {
+    .barRed {
+      animation: 3s infinite alternate barGrow1;
+    }
+  }
+
+  &:nth-of-type(2) {
+    .barRed {
+      animation: 3s infinite alternate barGrow2;
+    }
+  }
+
+  &:nth-of-type(3) {
+    .barRed {
+      animation: 3s infinite alternate barGrow3;
+    }
+  }
+}
+
+.barRed {
+  background-color: $red;
+  flex-basis: 80%;
+  animation-timing-function: ease-in-out;
+  width: 100%;
+}
+
+@keyframes barGrow1 {
+  0% {
+    flex-basis: 90%;
+  }
+
+  100% {
+    flex-basis: 40%;
+  }
+}
+
+@keyframes barGrow2 {
+  0% {
+    flex-basis: 20%;
+  }
+
+  100% {
+    flex-basis: 80%;
+  }
+}
+
+@keyframes barGrow3 {
+  0% {
+    flex-basis: 35%;
+  }
+
+  100% {
+    flex-basis: 65%;
+  }
+}
+
+// BOTTOM BOX
+
+.bottomBox {
+  aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.topLeft {
+  background-color: $red;
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
+.topRight {
+  position: relative;
+
+  .triangle {
+    background-color: $green;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    height: 100%;
+    width: 100%;
+  }
+
+  .circle {
+    background-color: $yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: 70%;
+  }
+}
+
+.bottomLeft {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    animation: 5s infinite alternate rotate;
+    animation-timing-function: cubicBezier(0.35, 0.17, 0.3, 0.86);
+    height: 70%;
+    width: 70%;
+
+    g {
+      path {
+        fill: $blue;
+      }
+    }
+  }
+}
+
+.bottomRight {
+  background-color: $coral;
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-120deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(40deg);
+  }
+}
